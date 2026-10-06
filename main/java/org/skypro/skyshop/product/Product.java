@@ -64,7 +64,6 @@ public abstract class Product implements Searchable {
         return Objects.hash(name);
     }
 
-
     @Override
     public UUID getId() {
         return id;

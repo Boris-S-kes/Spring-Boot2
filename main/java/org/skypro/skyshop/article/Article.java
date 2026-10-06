@@ -21,7 +21,6 @@ public class Article implements Searchable {
         @Override
         public UUID getId() {
             return id;
-
     }
 
 
