@@ -9,6 +9,7 @@ import org.skypro.skyshop.article.Article;
 import org.skypro.skyshop.controller.ShopController;
 import java.util.*;
 
+
 @Service
 public class StorageService {
     private final Map<UUID, Product> productStorage;
