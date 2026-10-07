@@ -2,7 +2,7 @@ package org.skypro.skyshop.service;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Collectors;
-import org.skypro.skyshop.search.SearchResult;
+import org.skypro.skyshop.model.search.SearchResult;
 
 
 
