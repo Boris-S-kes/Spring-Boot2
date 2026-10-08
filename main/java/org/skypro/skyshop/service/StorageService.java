@@ -1,6 +1,6 @@
 package org.skypro.skyshop.service;
 
-
+import java.util.Optional;
 import org.skypro.skyshop.model.SimpleProduct;
 import org.skypro.skyshop.model.Product;
 import org.skypro.skyshop.model.search.Searchable;
@@ -13,7 +13,7 @@ import java.util.*;
 @Service
 public class StorageService {
     private final Map<UUID, Product> productStorage;
-    private final Map<UUID,Article> articleStorage;
+    private final Map<UUID, Article> articleStorage;
 
     public StorageService() {
         this.productStorage = new HashMap<>();
@@ -22,21 +22,22 @@ public class StorageService {
     }
 
     private void initializeTestData() {
-        Product milk = new SimpleProduct("АВПАП",123,UUID.randomUUID());
-        Article article1 = new Article("lfmld","доставка",UUID.randomUUID());
+        Product milk = new SimpleProduct("АВПАП", 123, UUID.randomUUID());
+        Article article1 = new Article("lfmld", "доставка", UUID.randomUUID());
 
 
-        productStorage.put(milk.getId(),milk);
+        productStorage.put(milk.getId(), milk);
         articleStorage.put(article1.getId(), article1);
 
     }
-    public Collection<Product> getAllProducts () {
+
+    public Collection<Product> getAllProducts() {
         return productStorage.values();
     }
-    public Collection<Article> getAllArticles () {
+
+    public Collection<Article> getAllArticles() {
         return articleStorage.values();
     }
-
 
 
     public Collection<Searchable> getAllSearchables() {
@@ -46,6 +47,7 @@ public class StorageService {
         return result;
     }
 
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(productStorage.get(id));
     }
-
-
+}
