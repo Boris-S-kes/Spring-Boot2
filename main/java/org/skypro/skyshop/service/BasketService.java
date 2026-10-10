@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -23,7 +24,7 @@ public class BasketService {
     }
 public void addProduct(UUID id) {
     storageService.getProductById(id)
-            .orElseThrow(() -> new IllegalArgumentException(" товар не найден" + id));
+            .orElseThrow(() -> new NoSuchProductException(" товар не найден" + id));
     productBasket.addProduct(id);
 }
 public UserBasket getUserBasket() {
@@ -31,7 +32,7 @@ public UserBasket getUserBasket() {
             .map(entry -> {
                 Product product = storageService.getProductById(entry.getKey())
                         .orElseThrow(() ->
-                                new IllegalArgumentException("товар не найден" + entry.getKey()));
+                                new NoSuchProductException("товар не найден" + entry.getKey()));
                 return new BasketItem(product, entry.getValue());
             })
             .collect(Collectors.toList());
