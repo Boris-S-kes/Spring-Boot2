@@ -4,7 +4,7 @@ public class ShopError {
     private final String message;
     private final String code;
 
-    public ShopError(String message,String code) {
+    public ShopError(String code,String message) {
         this.code = code;
         this.message = message;
     }
