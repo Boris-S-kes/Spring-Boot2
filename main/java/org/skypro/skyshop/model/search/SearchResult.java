@@ -1,6 +1,4 @@
-package org.skypro.skyshop.search;
-import java.util.UUID;
-
+package org.skypro.skyshop.model.search;
 
 
 public final class SearchResult {
