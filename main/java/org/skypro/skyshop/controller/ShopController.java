@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 import java.util.UUID;
 
+
 @RestController
 public class ShopController {
     private final StorageService storageService;
