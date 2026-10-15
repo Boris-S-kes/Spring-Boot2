@@ -22,7 +22,7 @@ public class SearchService {
             return Collections.emptyList();
         }
         return storageService.getAllSearchables().stream()
-                .filter(item -> item.getSearchTerm() == null && item.getSearchTerm().toLowerCase().contains(pattern.toLowerCase()))
+                .filter(item -> item.getSearchTerm() != null && item.getSearchTerm().toLowerCase().contains(pattern.toLowerCase()))
                 .map(SearchResult::fromSearchable)
                 .collect(Collectors.toList());
     }
