@@ -1,8 +1,9 @@
-package org.skypro.skyshop.product;
+package org.skypro.skyshop.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.skypro.skyshop.search.Searchable;
+import org.skypro.skyshop.model.search.Searchable;
 import java.util.Objects;
 import java.util.UUID;
+
 
 
 public abstract class Product implements Searchable {
@@ -19,6 +20,7 @@ public abstract class Product implements Searchable {
         this.id = id;
 
     }
+
 
 
     public String getName() {
@@ -63,7 +65,6 @@ public abstract class Product implements Searchable {
     public int hashCode() {
         return Objects.hash(name);
     }
-
 
     @Override
     public UUID getId() {

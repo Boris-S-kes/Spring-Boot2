@@ -2,7 +2,7 @@ package org.skypro.skyshop.service;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Collectors;
-import org.skypro.skyshop.search.SearchResult;
+import org.skypro.skyshop.model.search.SearchResult;
 
 
 
@@ -22,7 +22,7 @@ public class SearchService {
             return Collections.emptyList();
         }
         return storageService.getAllSearchables().stream()
-                .filter(item -> item.getSearchTerm() == null && item.getSearchTerm().toLowerCase().contains(pattern.toLowerCase()))
+                .filter(item -> item.getSearchTerm() != null && item.getSearchTerm().toLowerCase().contains(pattern.toLowerCase()))
                 .map(SearchResult::fromSearchable)
                 .collect(Collectors.toList());
     }
